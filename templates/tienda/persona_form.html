@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registrar Persona</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+		{% include 'layout/head.html' %}
+    </head>
+    <body>
+        {% include 'layout/header.html' %}
+        <div class= "container">
+            {% include 'layout/msj_persona.html' %}
+            <div class= "row justify-content-md-center">
+                <div class="col-md-9">
+                    <div class="card mt-4 mb-5 shadow-lg">
+                        <div class="card-header text-center text-white bg-primary">
+                            <h2>Registro de Localidades</h2>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" enctype= "multipart/form-data" novalidate= "">
+                                {% csrf_token %}
+                                {% if form.nombre.errors %}							
+                                    <div class=" d-flex align-items-center mb-2 ">
+                                        <img class= "ms-3 " width="18" height="18" src="{% static 'images/error.svg' %}" alt="">
+                                        <div class= "ms-2 text-danger">
+                                            Este campo es obligatorio
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="row mb-3">    
+                                    <label for="nombre" class="col-sm-3 col-form-label fw-bold ps-3">Nombre</label> 
+                                    <div class="col-sm-9">
+                                        {{form.nombre}}
+                                    </div>
+                                </div>
+                                 {% if form.apellido.errors %}							
+                                    <div class=" d-flex align-items-center mb-2 ">
+                                        <img class= "ms-3 " width="18" height="18" src="{% static 'images/error.svg' %}" alt="">
+                                        <div class= "ms-2 text-danger">
+                                            Este campo es obligatorio
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="row mb-3">    
+                                    <label for="apellido" class="col-sm-3 col-form-label fw-bold ps-3">Apellido</label> 
+                                    <div class="col-sm-9">
+                                        {{form.apellido}}
+                                    </div>
+                                </div>
+                                 {% if form.num_doc.errors %}							
+                                    <div class=" d-flex align-items-center mb-2 ">
+                                        <img class= "ms-3 " width="18" height="18" src="{% static 'images/error.svg' %}" alt="">
+                                        <div class= "ms-2 text-danger">
+                                            Este campo es obligatorio
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="row mb-3">    
+                                <label for="dni" class="col-sm-3 col-form-label fw-bold ps-3">N° de Documento</label> 
+                                    <div class="col-sm-9">
+                                        {{form.num_doc}}
+                                    </div>
+                                </div>
+                                 {% if form.fecha_nac.errors %}							
+                                    <div class=" d-flex align-items-center mb-2 ">
+                                        <img class= "ms-3 " width="18" height="18" src="{% static 'images/error.svg' %}" alt="">
+                                        <div class= "ms-2 text-danger">
+                                            Este campo es obligatorio
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="row mb-3">    
+                                    <label for="fnac" class="col-sm-3 col-form-label fw-bold ps-3">Fecha de Nacimiento</label> 
+                                    <div class="col-sm-9">
+                                        {{form.fecha_nac}}
+                                    </div>
+                                </div>
+                                 {% if form.telefono.errors %}							
+                                    <div class=" d-flex align-items-center mb-2 ">
+                                        <img class= "ms-3 " width="18" height="18" src="{% static 'images/error.svg' %}" alt="">
+                                        <div class= "ms-2 text-danger">
+                                            Este campo es obligatorio
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="row mb-3">    
+                                    <label for="tel" class="col-sm-3 col-form-label fw-bold ps-3">Teléfono</label> 
+                                    <div class="col-sm-9">
+                                        {{form.telefono}}
+                                    </div>
+                                </div>
+                                 {% if form.email.errors %}							
+                                    <div class=" d-flex align-items-center mb-2 ">
+                                        <img class= "ms-3 " width="18" height="18" src="{% static 'images/error.svg' %}" alt="">
+                                        <div class= "ms-2 text-danger">
+                                            Este campo es obligatorio
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="row mb-3">    
+                                    <label for="email" class="col-sm-3 col-form-label fw-bold ps-3">Email</label> 
+                                    <div class="col-sm-9">
+                                        {{form.email}}
+                                    </div>
+                                </div>
+                                 {% if form.localidad.errors %}							
+                                    <div class=" d-flex align-items-center mb-2 ">
+                                        <img class= "ms-3 " width="18" height="18" src="{% static 'images/error.svg' %}" alt="">
+                                        <div class= "ms-2 text-danger">
+                                            Este campo es obligatorio
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="row mb-3">    
+                                    <label for="lcld" class="col-sm-3 col-form-label fw-bold ps-3">Localidad</label> 
+                                    <div class="col-sm-9">
+                                        {{form.localidad}}
+                                    </div>
+                                </div>
+                                 {% if form.direccion.errors %}							
+                                    <div class=" d-flex align-items-center mb-2 ">
+                                        <img class= "ms-3 " width="18" height="18" src="{% static 'images/error.svg' %}" alt="">
+                                        <div class= "ms-2 text-danger">
+                                            Este campo es obligatorio
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="row mb-3">
+                                    <label for="drcn" class="col-sm-3 col-form-label fw-bold ps-3">Direccion</label>
+                                    <div class="col-sm-9">
+                                    {{form.direccion}}
+                                    </div>
+                                </div>
+                            
+                                <div class="pt-2 text-center">
+                                    <button type="reset"
+                                        class="btn btn-outline-danger rounded-pill">
+                                        Cancelar <i class="bi bi-x-circle-fill"></i>
+                                    </button>
+                                    <button type="submit"
+                                        class="btn btn-outline-success rounded-pill">
+                                        Guardar <i class="bi bi-check-circle-fill"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+			    </div>
+            </div>
+        </div>
+        {% include 'layout/footer.html' %}        
+
+        <script src="{% static 'bootstrap.min.js' %}"></script>
+        <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+    </body>
+    
+</html>

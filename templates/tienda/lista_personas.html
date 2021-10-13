@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Personas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    {% include 'layout/head.html' %}
+</head>
+<body>
+    {% include 'layout/header.html' %}
+    <div class="container">
+        <br>
+        <a href="{% url 'nueva_persona' %}"><button type="button" class="btn btn-primary btn-sm ms-3">Nueva Persona</button></a>
+        <div class="row ">
+            <div class="card text-center border-0">
+                <br>
+                <div class="card-header border rounded-pill bg-info text-white">
+                    <h2 class="card-title">Lista de Personas</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-bordered">
+                        <thead class= "bg-black text-white">
+                            <tr>
+                                <th>N° de Documento</th>
+                                <th>Apellido</th>
+                                <th>Nombre</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Telefono</th>
+                                <th>Email</th>
+                                <th>Direccion</th>
+                                <th>Localidad</th> 
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        {% for persona in personas %}
+                            <tr>
+                                <td>{{persona.num_doc}} </td>
+                                <td>{{persona.apellido}}</td>
+                                <td>{{persona.nombre}} </td>
+                                <td>{{persona.fecha_nac}}</td>
+                                <td>{{persona.telefono}}</td>
+                                <td>{{persona.email}}</td>
+                                <td>{{persona.direccion}}</td>
+                                <td>{{persona.localidad}}</td>
+                                <td class="text-center">
+									<div class="btn-group btn-group-sm" role="group">
+										<a href="{% url 'modificar_persona' persona.num_doc %}" type= "button" class= "pe-3">
+										    <img src="{% static 'images/edit.svg' %}">
+										</a>
+										<a href="{% url 'eliminar_persona' persona.num_doc %}" type="button" class= "ps-1">
+											<img src=" {% static 'images/trash-2.svg' %}">
+										</a>
+									</div>
+								</td>     
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'layout/footer.html' %}
+
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

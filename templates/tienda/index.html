@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    {% include 'layout/head.html' %}
+</head>
+<body>
+    {% include 'layout/header.html' %}
+    <br>
+    <br>
+    <div class= "container">
+        <h1 class= "text-center">Resumen de lo que encontrarás en el sitio web</h1>
+        <br>
+        
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'images/location-dot-solid.svg' %}" class="card-img-top mt-2" alt="..." width= 60 height= 60>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Localidad</h5>
+                        <p class="card-text text-center">Esta seccion te permite registrar localidades por medio de un formulario, tambien encontrarás un listado de ellas y podrás realizar acciones con cada registro.</p>
+                    </div>
+                    <div class="text-center mb-3">
+                        <a href="{% url 'nueva_localidad' %}" class="btn btn-primary">Ir a la pagina </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'images/personas.svg' %}" class="card-img-top mt-2" alt="..." width= 60 height= 60>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Personas</h5>
+                        <p class="card-text text-center">Esta seccion te permite registrar personas por medio de un formulario, tambien encontrarás un listado de ellas y podrás realizar acciones con cada registro.</p>
+                    </div>
+                    <div class="text-center mb-3">
+                        <a href="{% url 'nueva_persona' %}" class="btn btn-primary">Ir a la pagina </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'images/cargo.svg' %}" class="card-img-top mt-2" alt="..." width= 60 height= 60>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Cargos</h5>
+                        <p class="card-text text-center">Esta seccion te permite registrar cargos por medio de un formulario, tambien encontrarás un listado de ellos y podrás realizar acciones con cada registro.</p>
+                    </div>
+                    <div class="text-center mb-3">
+                        <a href="{% url 'nuevo_cargo' %}" class="btn btn-primary">Ir a la pagina </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'images/empleados.svg' %}" class="card-img-top mt-2" alt="..." width= 60 height= 60>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Empleados</h5>
+                        <p class="card-text text-center">Esta seccion te permite registrar empleados por medio de un formulario, tambien encontrarás un listado de ellos y podrás realizar acciones con cada registro.</p>
+                    </div>
+                    <div class="text-center mb-3">
+                        <a href="{% url 'nuevo_empleado' %}" class="btn btn-primary">Ir a la pagina </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'images/clientes.svg' %}" class="card-img-top mt-2" alt="..." width= 60 height= 60>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Clientes</h5>
+                        <p class="card-text text-center">Esta seccion te permite registrar clientes por medio de un formulario, tambien encontrarás un listado de ellos y podrás realizar acciones con cada registro.</p>
+                    </div>
+                    <div class="text-center mb-3">
+                        <a href="{% url 'nuevo_cliente' %}" class="btn btn-primary">Ir a la pagina </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 ">
+                    <img src="{% static 'images/movim.svg' %}" class="card-img-top mt-2" alt="..." width= 60 height= 60>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Movimientos</h5>
+                        <p class="card-text text-center">Esta seccion te permite registrar movimientos por medio de un formulario, tambien encontrarás un listado de ellos y podrás realizar acciones con cada registro.</p>
+                    </div>
+                    <div class="text-center mb-3">
+                        <a href="{% url 'nuevo_movimiento' %}" class="btn btn-primary">Ir a la pagina </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'images/articulos.svg' %}" class="card-img-top mt-2" alt="..." width= 60 height= 60>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Articulos</h5>
+                        <p class="card-text text-center">Esta seccion te permite registrar articulos por medio de un formulario, tambien encontrarás un listado de ellos y podrás realizar acciones con cada registro.</p>
+                    </div>
+                    <div class="text-center mb-3">
+                        <a href="{% url 'nuevo_articulo' %}" class="btn btn-primary">Ir a la pagina </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'images/items.svg' %}" class="card-img-top mt-2" alt="..." width= 60 height= 60>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Items</h5>
+                        <p class="card-text text-center">Esta seccion te permite registrar items por medio de un formulario, tambien encontrarás un listado de ellas y podrás realizar acciones con cada registro.</p>
+                    </div>
+                    <div class="text-center mb-3">
+                        <a href="{% url 'nuevo_item' %}" class="btn btn-primary">Ir a la pagina </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <br>
+    <br>
+    {% include 'layout/footer.html' %}
+
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

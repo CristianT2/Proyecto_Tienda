@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+	<footer>
+		<div class="bg-dark  text-white pt-5">
+				<div class="row m-2">
+					<div class="col-md-4 mb-4">
+						<h5>¿Quienes somos?</h5>
+						<p>Somos la compañía tecnológica de comercio electrónico líder de América Latina y nuestro propósito es democratizar el comercio y el dinero para impactar en el desarrollo de la región.</p>
+						<p>Nacimos en 1999 y actualmente operamos en 19 países de la región. En pocos años, logramos convertirnos en la séptima plataforma de comercio electrónico del mundo</p>
+					</div>
+					<div class="text-center col-md-4 mb-4">
+						<h5 class="text-center">Enlaces rápidos</h5>
+						<a href="#" style="color: white; text-decoration: none;">Linkedin <img src=" {% static 'images/icons8-linkedin.svg' %}"></a> <br>
+						<a href="#" style="color: white; text-decoration: none;">GitHub <img src=" {% static 'images/icons8-github.svg' %}"></a> <br>
+						<a href="#" style="color: white; text-decoration: none;">Facebook <img src=" {% static 'images/icons8-facebook.svg' %}"></a> <br>
+						<a href="#" style="color: white; text-decoration: none;">Instagram <img src=" {% static 'images/icons8-instagram.svg' %}"></a>
+					</div>
+					<div class="text-end col-md-4">
+						<h5 class="text-start">Visita nuestra tienda</h5>
+						<p class="text-start">Para disfrutar de una mayor experiencia en nuestra comunidad puedes comprar rangos, gemas y muchas más cosas... </p>
+						<button type="button" class="btn btn-outline-secondary">ir a la Tienda</button>
+					</div>
+					<h5 class= "text-center">Cristian Andres Torrejón - 2021</h5>
+				</div>
+		<!--Bootstrap JavaScript-->
+			<script type="text/javascript" th:src="@{/webjars/bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js}"></script>
+			</div>
+	</footer>
+</body>
+</html>
