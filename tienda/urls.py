@@ -35,4 +35,5 @@ urlpatterns = [
     path("eliminar_movimiento/<int:pk>", views.eliminar_movimiento, name= 'eliminar_movimiento'),
     path("eliminar_articulo/<int:pk>", views.eliminar_articulo, name= 'eliminar_articulo'),
     path("eliminar_item/<int:pk>", views.eliminar_item, name= 'eliminar_item'),
+    path("info", views.mostrar_msjException, name= 'information')
 ]

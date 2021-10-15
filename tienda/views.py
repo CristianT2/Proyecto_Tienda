@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import redirect, render
+from django.db.models import ProtectedError
 from .models import Localidad, Persona, Empleado, Cargo, Cliente, Movimiento, Articulo, Item
 from .forms import LocalidadForm, PersonaForm, CargoForm, EmpleadoForm, ClienteForm, MovimientoForm, ArticuloForm, ItemForm
 
@@ -286,7 +287,11 @@ def modificar_item(request, pk, template_name= 'tienda/item_form.html'):
 def eliminar_localidad(request, pk, template_name= 'tienda/alert_elim_localidad.html'):
     localidad = Localidad.objects.get(pk = pk)
     if request.method == 'POST':
-        localidad.delete()
+        try:
+            localidad.delete()
+        except ProtectedError:
+           return redirect('information') 
+
         return redirect('localidad_listar')
     else:
         dato = {"form": localidad}
@@ -296,7 +301,11 @@ def eliminar_localidad(request, pk, template_name= 'tienda/alert_elim_localidad.
 def eliminar_persona(request, pk, template_name= 'tienda/alert_elim_persona.html'):
     persona = Persona.objects.get(num_doc = pk)
     if request.method == 'POST':
-        persona.delete()
+        try:
+            persona.delete()
+        except ProtectedError:
+           return redirect('information') 
+
         return redirect('persona_listar')
     else:
         dato = {"form": persona}
@@ -306,7 +315,11 @@ def eliminar_persona(request, pk, template_name= 'tienda/alert_elim_persona.html
 def eliminar_empleado(request, pk, template_name= 'tienda/alert_elim_empleado.html'):
     empleado = Empleado.objects.get(legajo = pk)
     if request.method == 'POST':
-        empleado.delete()
+        try:
+            empleado.delete()
+        except ProtectedError:
+           return redirect('information') 
+
         return redirect('empleado_listar')
     else:
         dato = {"form": empleado}
@@ -317,7 +330,11 @@ def eliminar_empleado(request, pk, template_name= 'tienda/alert_elim_empleado.ht
 def eliminar_cargo(request, pk, template_name= 'tienda/alert_elim_cargo.html'):
     cargo = Cargo.objects.get(pk = pk)
     if request.method == 'POST':
-        cargo.delete()
+        try:
+            cargo.delete()
+        except ProtectedError:
+           return redirect('information') 
+
         return redirect('cargo_listar')
     else:
         dato = {"form": cargo}
@@ -327,7 +344,11 @@ def eliminar_cargo(request, pk, template_name= 'tienda/alert_elim_cargo.html'):
 def eliminar_cliente(request, pk, template_name= 'tienda/alert_elim_cliente.html'):
     cliente = Cliente.objects.get(pk = pk)
     if request.method == 'POST':
-        cliente.delete()
+        try:
+            cliente.delete()
+        except ProtectedError:
+           return redirect('information') 
+
         return redirect('cliente_listar')
     else:
         dato = {"form": cliente}
@@ -337,7 +358,11 @@ def eliminar_cliente(request, pk, template_name= 'tienda/alert_elim_cliente.html
 def eliminar_movimiento(request, pk, template_name= 'tienda/alert_elim_movimiento.html'):
     movimiento = Movimiento.objects.get(pk = pk)
     if request.method == 'POST':
-        movimiento.delete()
+        try:
+            movimiento.delete()
+        except ProtectedError:
+           return redirect('information') 
+
         return redirect('movimiento_listar')
     else:
         dato = {"form": movimiento}
@@ -347,7 +372,11 @@ def eliminar_movimiento(request, pk, template_name= 'tienda/alert_elim_movimient
 def eliminar_articulo(request, pk, template_name= 'tienda/alert_elim_articulo.html'):
     articulo = Articulo.objects.get(pk = pk)
     if request.method == 'POST':
-        articulo.delete()
+        try:
+            articulo.delete()
+        except ProtectedError:
+           return redirect('information') 
+
         return redirect('articulo_listar')
     else:
         dato = {"form": articulo}
@@ -357,11 +386,21 @@ def eliminar_articulo(request, pk, template_name= 'tienda/alert_elim_articulo.ht
 def eliminar_item(request, pk, template_name= 'tienda/alert_elim_item.html'):
     item = Item.objects.get(pk = pk)
     if request.method == 'POST':
-        item.delete()
+        try:
+            item.delete()
+        except ProtectedError:
+           return redirect('information') 
+           
         return redirect('item_listar')
     else:
         dato = {"form": item}
         return render(request, template_name, dato) 
+
+
+def mostrar_msjException(request, template_name= "tienda/msj_excepcion.html"):
+    return render(request, template_name)
+
+
     
 
 
